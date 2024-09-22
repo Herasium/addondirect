@@ -3,23 +3,34 @@
     "name": "Addon Direct",
     "description": "Add things to Ecole Direct",
     "version": "1.0",
+    "permissions": [
+        "webRequest",
+        "webRequestBlocking",
+        "declarativeNetRequest",
+        "activeTab"
+    ],
+    "background": {
+        "service_worker": "src/scripts/background.js"
+    },
+    "host_permissions": [
+        "*://www.ecoledirecte.com/*"
+    ],
     "action": {
-      "default_popup": "src/html/pop.html",
-      "default_icon": "src/img/icon.png"
+        "default_popup": "src/html/pop.html",
+        "default_icon": "src/img/icon.png"
     },
     "content_scripts": [
         {
-          "js": ["src/scripts/core.js","src/scripts/index.js"],
-          "matches": [
-            "https://www.ecoledirecte.com/*"
-          ]
+            "js": ["src/scripts/core.js", "src/scripts/index.js"],
+            "matches": [
+                "*://www.ecoledirecte.com/*"
+            ]
         }
-      ],
-
+    ],
     "web_accessible_resources": [
         {
-          "resources": ["src/img/lab_icon.png"],
-          "matches": ["<all_urls>"]
+            "resources": ["src/img/lab_icon.png"],
+            "matches": ["<all_urls>"]
         }
-      ]
-  }
+    ]
+}
