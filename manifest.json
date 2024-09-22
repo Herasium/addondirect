@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Addon Direct",
+    "description": "Add things to Ecole Direct",
+    "version": "1.0",
+    "action": {
+      "default_popup": "src/html/pop.html",
+      "default_icon": "src/img/icon.png"
+    },
+    "content_scripts": [
+        {
+          "js": ["src/scripts/core.js","src/scripts/index.js"],
+          "matches": [
+            "https://www.ecoledirecte.com/*"
+          ]
+        }
+      ],
+
+    "web_accessible_resources": [
+        {
+          "resources": ["src/img/lab_icon.png"],
+          "matches": ["<all_urls>"]
+        }
+      ]
+  }
